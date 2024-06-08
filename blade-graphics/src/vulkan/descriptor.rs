@@ -48,6 +48,7 @@ impl super::Device {
         };
         let descriptor_pool_info = vk::DescriptorPoolCreateInfo::default()
             .max_sets(max_sets)
+            .flags(vk::DescriptorPoolCreateFlags::FREE_DESCRIPTOR_SET)
             .pool_sizes(&descriptor_sizes)
             .push_next(&mut inline_uniform_block_info);
         unsafe {
